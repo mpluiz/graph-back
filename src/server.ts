@@ -1,11 +1,10 @@
 import { ApolloServer } from 'apollo-server';
-import { typeDefs, resolvers } from './graphql/schema';
-import { context } from './graphql/context';
+import { typeDefs, resolvers, dataSources } from './app/schema';
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context
+  dataSources
 });
 
 server.listen(3333).then(({ url }) => {

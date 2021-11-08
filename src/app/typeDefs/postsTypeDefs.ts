@@ -14,4 +14,16 @@ export const postsTypeDefs = gql`
     indexRef: Int!
     createdAt: String!
   }
+
+  input PostsFiltersInput {
+    _sort: String
+    _order: PostsFiltersOrderEnum
+    _start: Int
+    _limit: Int
+  }
+
+  enum PostsFiltersOrderEnum {
+    asc
+    desc
+  }
 `;

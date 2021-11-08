@@ -7,8 +7,8 @@
     "dev": "ts-node-dev -r dotenv/config --ignore-watch node_modules --respawn src/server.ts"
   },
   "dependencies": {
+    "apollo-datasource-rest": "^3.4.0",
     "apollo-server": "^3.5.0",
-    "axios": "^0.24.0",
     "dotenv": "^10.0.0",
     "graphql": "^16.0.1"
   },

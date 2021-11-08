@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server';
 
 export const usersTypeDefs = gql`
-  type Query {
+  extend type Query {
     User(id: ID!): User!
     Users(filters: UsersFiltersInput): [User!]!
   }
@@ -13,5 +13,17 @@ export const usersTypeDefs = gql`
     userName: String
     indexRef: Int
     createdAt: String
+  }
+
+  input UsersFiltersInput {
+    _sort: String
+    _order: UsersFiltersOrderEnum
+    _start: Int
+    _limit: Int
+  }
+
+  enum UsersFiltersOrderEnum {
+    asc
+    desc
   }
 `;
