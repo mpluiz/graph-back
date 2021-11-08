@@ -7,6 +7,7 @@ const server = new ApolloServer({
   dataSources
 });
 
-server.listen(3333).then(({ url }) => {
+const port = process.env.APP_PORT || 3333
+server.listen(port).then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });
