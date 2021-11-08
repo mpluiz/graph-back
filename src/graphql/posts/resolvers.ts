@@ -3,8 +3,9 @@ async function getPost(_, { id }, { api }) {
   return response.data;
 }
 
-async function getPosts(_, __, { api }) {
-  const response = await api.get('/posts');
+async function getPosts(_, { filters }, { api }) {
+  const params = new URLSearchParams(filters)
+  const response = await api.get(`/posts?${params.toString()}`);
   return response.data;
 }
 

@@ -3,8 +3,9 @@ async function getUser(_, { id }, { api }) {
   return response.data;
 }
 
-async function getUsers(_, __, { api }) {
-  const response = await api.get('/users');
+async function getUsers(_, {filters}, { api }) {
+  const params = new URLSearchParams(filters)
+  const response = await api.get(`/users?${params.toString()}`);
   return response.data;
 }
 

@@ -3,7 +3,7 @@ import { gql } from 'apollo-server';
 export const postsTypeDefs = gql`
   extend type Query {
     Post(id: ID!): Post!
-    Posts: [Post!]!
+    Posts(filters: PostsFiltersInput): [Post!]!
   }
 
   type Post {
