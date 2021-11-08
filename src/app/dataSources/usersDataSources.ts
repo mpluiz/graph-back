@@ -13,4 +13,8 @@ export class UsersAPI extends RESTDataSource {
   async getUsers(params = {}) {
     return this.get('/users', params);
   }
+
+  async createUser(data) {
+    return this.post('/users', data)
+  }
 }

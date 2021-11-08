@@ -13,4 +13,8 @@ export class PostsAPI extends RESTDataSource {
   async getPosts(params = {}) {
     return this.get('/posts', params);
   }
+
+  async createPost(data) {
+    return this.post('/posts', data)
+  }
 }

@@ -3,7 +3,11 @@ import { gql } from 'apollo-server';
 export const postsTypeDefs = gql`
   extend type Query {
     Post(id: ID!): Post!
-    Posts(filters: PostsFiltersInput): [Post!]!
+    Posts(filters: PostsFiltersInputs): [Post!]!
+  }
+
+  extend type Mutation  {
+    CreatePost(data: CreatePostInputs!): Post!
   }
 
   type Post {
@@ -15,7 +19,13 @@ export const postsTypeDefs = gql`
     createdAt: String!
   }
 
-  input PostsFiltersInput {
+  input CreatePostInputs {
+    title: String!
+    body: String!
+    userId: String!
+  }
+
+  input PostsFiltersInputs {
     _sort: String
     _order: PostsFiltersOrderEnum
     _start: Int
