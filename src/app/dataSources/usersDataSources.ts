@@ -3,7 +3,7 @@ import { RESTDataSource } from 'apollo-datasource-rest';
 export class UsersAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = process.env.API_URL
+    this.baseURL = process.env.API_URL;
   }
 
   async getUser(id) {
@@ -15,6 +15,10 @@ export class UsersAPI extends RESTDataSource {
   }
 
   async createUser(data) {
-    return this.post('/users', data)
+    return this.post('/users', data);
+  }
+
+  async updateUser(id, data) {
+    return this.patch(`/users/${id}`, data);
   }
 }

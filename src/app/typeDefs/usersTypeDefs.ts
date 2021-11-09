@@ -5,9 +5,10 @@ export const usersTypeDefs = gql`
     User(id: ID!): User!
     Users(filters: UsersFiltersInputs): [User!]!
   }
-  
+
   extend type Mutation {
     CreateUser(data: CreateUserInputs!): User!
+    UpdateUser(id: ID! data: UpdateUserInputs): User!
   }
 
   type User {
@@ -18,11 +19,18 @@ export const usersTypeDefs = gql`
     indexRef: Int!
     createdAt: String!
   }
-  
+
   input CreateUserInputs {
     firstName: String!
     lastName: String!
     userName: String!
+  }
+
+  input UpdateUserInputs {
+    firstName: String
+    lastName: String
+    userName: String
+    indexRef: Int
   }
 
   input UsersFiltersInputs {
