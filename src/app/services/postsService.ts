@@ -11,13 +11,14 @@ export async function create(_, { data }, { dataSources }) {
   data = {
     ...data,
     indexRef: Math.floor(Math.random() * 100),
-    createdAt: new Date().toISOString()
-  }
+    createdAt: new Date().toISOString(),
+  };
 
   return dataSources.postsApi.createPost(data);
 }
 
-export async function update() {
+export async function update(_, { id, data }, { dataSources }) {
+  return dataSources.postsApi.updatePost(id, data);
 }
 
 export async function remove() {
