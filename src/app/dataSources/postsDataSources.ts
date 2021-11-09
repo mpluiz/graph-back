@@ -21,4 +21,8 @@ export class PostsAPI extends RESTDataSource {
   async updatePost(id, data) {
     return this.patch(`/posts/${id}`, data);
   }
+
+  async deletePost(id) {
+    return this.delete(`/posts/${id}`);
+  }
 }

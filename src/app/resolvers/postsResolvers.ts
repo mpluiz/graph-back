@@ -1,4 +1,4 @@
-import { index, find, create, update } from '../services/postsService';
+import { index, find, create, update, remove } from '../services/postsService';
 
 export const postsResolvers = {
   Query: {
@@ -9,5 +9,6 @@ export const postsResolvers = {
   Mutation: {
     CreatePost: create,
     UpdatePost: update,
+    DeletePost: remove,
   },
 };

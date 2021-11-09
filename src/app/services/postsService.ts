@@ -21,5 +21,7 @@ export async function update(_, { id, data }, { dataSources }) {
   return dataSources.postsApi.updatePost(id, data);
 }
 
-export async function remove() {
+export async function remove(_, { id }, { dataSources }) {
+  const response = await dataSources.postsApi.deletePost(id);
+  return Boolean(response);
 }
