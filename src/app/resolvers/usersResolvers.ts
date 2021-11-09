@@ -1,4 +1,4 @@
-import { index, find, create, update } from '../services/usersService';
+import { index, find, create, update, remove } from '../services/usersService';
 
 export const usersResolvers = {
   Query: {
@@ -9,5 +9,6 @@ export const usersResolvers = {
   Mutation: {
     CreateUser: create,
     UpdateUser: update,
+    DeleteUser: remove
   },
 };

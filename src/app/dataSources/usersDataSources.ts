@@ -21,4 +21,8 @@ export class UsersAPI extends RESTDataSource {
   async updateUser(id, data) {
     return this.patch(`/users/${id}`, data);
   }
+
+  async deleteUser(id) {
+    return this.delete(`/users/${id}`);
+  }
 }

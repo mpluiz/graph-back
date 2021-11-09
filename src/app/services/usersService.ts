@@ -21,5 +21,7 @@ export async function update(_, { id, data }, { dataSources }) {
   return dataSources.usersApi.updateUser(id, data);
 }
 
-export async function remove() {
+export async function remove(_, { id }, { dataSources }) {
+  const response = await dataSources.usersApi.deleteUser(id);
+  return Boolean(response);
 }
