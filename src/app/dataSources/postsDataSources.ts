@@ -7,13 +7,11 @@ export class PostsAPI extends RESTDataSource {
     this.baseURL = process.env.API_URL;
   }
 
-  private getUserLoader = new DataLoader(async (keys) => {
+  private getUserDataLoader = new DataLoader(async (keys) => {
     const params = `?id=${keys.join('&id=')}`;
     const userList = await this.get('/users', params);
 
-    return keys.map(id =>
-      userList.find((user) => user.id === id),
-    );
+    return keys.map(id => userList.find((user) => user.id === id));
   });
 
   async getPost(id) {
@@ -37,6 +35,6 @@ export class PostsAPI extends RESTDataSource {
   }
 
   async getUser(keys) {
-    return this.getUserLoader.load(keys);
+    return this.getUserDataLoader.load(keys);
   }
 }
