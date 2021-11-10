@@ -55,7 +55,7 @@ To run this project, you will need to add the following environment variables to
 ## API Reference
 
 - [Insomnia Request GraphQL Collection](https://raw.githubusercontent.com/mpluiz/graph-back/master/docs/Insomnia.json)
-- [API REST](https://raw.githubusercontent.com/mpluiz/graph-back/master/docs/Insomnia.json)
+- [API REST](https://github.com/mpluiz/simple-api-rest)
 
 
 ## How to contribute
