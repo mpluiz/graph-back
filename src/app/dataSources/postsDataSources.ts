@@ -1,10 +1,20 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
+import DataLoader from 'dataloader';
 
 export class PostsAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.API_URL;
   }
+
+  private getUserLoader = new DataLoader(async (keys) => {
+    const params = `?id=${keys.join('&id=')}`;
+    const userList = await this.get('/users', params);
+
+    return keys.map(id =>
+      userList.find((user) => user.id === id),
+    );
+  });
 
   async getPost(id) {
     return this.get(`/posts/${id}`);
@@ -24,5 +34,9 @@ export class PostsAPI extends RESTDataSource {
 
   async deletePost(id) {
     return this.delete(`/posts/${id}`);
+  }
+
+  async getUser(keys) {
+    return this.getUserLoader.load(keys);
   }
 }

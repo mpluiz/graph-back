@@ -25,3 +25,7 @@ export async function remove(_, { id }, { dataSources }) {
   const response = await dataSources.postsApi.deletePost(id);
   return Boolean(response);
 }
+
+export async function getUser(parent, _, { dataSources }) {
+  return dataSources.postsApi.getUser(parent.userId);
+}
