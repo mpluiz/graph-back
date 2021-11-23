@@ -11,7 +11,7 @@ export class PostsAPI extends RESTDataSource {
     const params = `?id=${keys.join('&id=')}`;
     const userList = await this.get('/users', params);
 
-    return keys.map(id => userList.find((user) => user.id === id));
+    return keys.map((id) => userList.find((user) => user.id === id));
   });
 
   async getPost(id) {

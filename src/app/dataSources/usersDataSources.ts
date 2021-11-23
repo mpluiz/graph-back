@@ -10,7 +10,7 @@ export class UsersAPI extends RESTDataSource {
   private getPostsDataLoader = new DataLoader(async (keys) => {
     const params = `?userId=${keys.join('&userId=')}`;
     const postsList = await this.get('/posts', params);
-    return keys.map(id => postsList.filter((post) => post.userId === id));
+    return keys.map((id) => postsList.filter((post) => post.userId === id));
   });
 
   async getUser(id) {

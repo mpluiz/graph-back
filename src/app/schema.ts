@@ -1,10 +1,11 @@
 import { gql } from 'apollo-server';
-import { usersTypeDefs } from './typeDefs/usersTypeDefs';
-import { postsTypeDefs } from './typeDefs/postsTypeDefs';
-import { usersResolvers } from './resolvers/usersResolvers';
-import { postsResolvers } from './resolvers/postsResolvers';
+
 import { PostsAPI } from './dataSources/postsDataSources';
 import { UsersAPI } from './dataSources/usersDataSources';
+import { postsResolvers } from './resolvers/postsResolvers';
+import { usersResolvers } from './resolvers/usersResolvers';
+import { postsTypeDefs } from './typeDefs/postsTypeDefs';
+import { usersTypeDefs } from './typeDefs/usersTypeDefs';
 
 const rootTypeDefs = gql`
   type Query {
@@ -26,17 +27,9 @@ const rootResolvers = {
   },
 };
 
-export const typeDefs = [
-  rootTypeDefs,
-  usersTypeDefs,
-  postsTypeDefs,
-];
+export const typeDefs = [rootTypeDefs, usersTypeDefs, postsTypeDefs];
 
-export const resolvers = [
-  rootResolvers,
-  usersResolvers,
-  postsResolvers,
-];
+export const resolvers = [rootResolvers, usersResolvers, postsResolvers];
 
 export function dataSources() {
   return {

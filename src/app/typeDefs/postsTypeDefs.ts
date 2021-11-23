@@ -6,9 +6,9 @@ export const postsTypeDefs = gql`
     Posts(filters: PostsFiltersInputs): [Post!]!
   }
 
-  extend type Mutation  {
+  extend type Mutation {
     CreatePost(data: CreatePostInputs!): Post!
-    UpdatePost(id: ID! data: UpdatePostInputs): Post!
+    UpdatePost(id: ID!, data: UpdatePostInputs): Post!
     DeletePost(id: ID!): Boolean!
   }
 

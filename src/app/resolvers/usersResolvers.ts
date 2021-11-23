@@ -1,4 +1,11 @@
-import { index, find, create, update, remove, getPosts } from '../services/usersService';
+import {
+  index,
+  find,
+  create,
+  update,
+  remove,
+  getPosts,
+} from '../services/usersService';
 
 export const usersResolvers = {
   Query: {

@@ -8,13 +8,13 @@ export async function find(_, { id }, { dataSources }) {
 }
 
 export async function create(_, { data }, { dataSources }) {
-  data = {
+  const post = {
     ...data,
     indexRef: Math.floor(Math.random() * 100),
     createdAt: new Date().toISOString(),
   };
 
-  return dataSources.postsApi.createPost(data);
+  return dataSources.postsApi.createPost(post);
 }
 
 export async function update(_, { id, data }, { dataSources }) {
